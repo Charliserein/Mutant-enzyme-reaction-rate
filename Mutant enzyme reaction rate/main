@@ -1,0 +1,18 @@
+import matplotlib.pyplot as plt
+from package import Asymptote,V,ros
+
+Asymptote=Asymptote()
+
+plt.plot(ros, V,color='blue', linestyle='-', linewidth=2, label=f'Rate Curve')
+plt.title('SOD enzyme reaction rate curve')
+plt.xlabel('Substrate concentration(mmol/ml)')
+plt.ylabel('Enzyme reaction rate(mmol/day)')
+
+plt.axhline(0, color='black',linewidth=1)
+plt.axvline(0, color='black',linewidth=1)
+
+plt.grid(color = 'gray', linestyle = '--', linewidth = 0.5)
+plt.xlim(left=0)
+plt.ylim(bottom=0)
+plt.legend()
+plt.show()
