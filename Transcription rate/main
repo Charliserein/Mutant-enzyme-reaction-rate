@@ -1,0 +1,35 @@
+
+import matplotlib.pyplot as plt
+from package import time,ROS_rk4,SOD_rk4
+
+
+plt.figure(figsize=(12, 5))
+
+# Sub-figure 1: ROS concentration changes over time
+plt.subplot(1, 2, 1)
+plt.plot(time, ROS_rk4, label='ROS Concentration',linewidth=2)
+plt.xlabel('Time(s)')
+plt.ylabel('ROS Concentration(µM)')
+plt.title('ROS Concentration over Time')
+plt.axhline(0, color='black',linewidth=1)
+plt.axvline(0, color='black',linewidth=1)
+plt.xlim(left=0)
+plt.ylim(bottom=0)
+plt.grid(color = 'gray', linestyle = '--', linewidth = 0.5)
+plt.legend()
+
+# Sub-figure 2: Changes in SOD transcription efficiency relative to ROS concentration
+plt.subplot(1, 2, 2)
+plt.plot(ROS_rk4, SOD_rk4, label='SOD Transcription Efficiency',linewidth=2)
+plt.xlabel('ROS Concentration(µM)')
+plt.ylabel('SOD Transcription Efficiency')
+plt.title('SOD Transcription Efficiency vs ROS Concentration')
+plt.axhline(0, color='black',linewidth=1)
+plt.axvline(0, color='black',linewidth=1)
+plt.xlim(left=0)
+plt.ylim(bottom=0)
+plt.grid(color = 'gray', linestyle = '--', linewidth = 0.5)
+plt.legend()
+
+plt.tight_layout()
+plt.show()
